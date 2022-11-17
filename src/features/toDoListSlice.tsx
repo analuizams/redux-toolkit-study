@@ -6,7 +6,7 @@ export interface ToDoState {
 }
 
 const initialState: ToDoState = {
-  tasks: []
+  tasks: ['Lavar roupa', 'Estudar', 'Academia']
 }
 
 export const ToDoListSlice = createSlice({

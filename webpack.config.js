@@ -1,11 +1,8 @@
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
-// // HtmlWebpackPlugin generates index.html from a template
-
-// const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".json"],
+    extensions: [".tsx", ".ts", ".js", ".jsx", ".json", ".css"],
   },
   mode: "development",
   entry: "./src/index.tsx",
@@ -38,6 +35,19 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      },
     ],
   },
+  plugins: [new MiniCssExtractPlugin()],
 };
